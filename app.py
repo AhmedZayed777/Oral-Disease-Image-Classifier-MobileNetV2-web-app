@@ -31,6 +31,8 @@ if uploaded_file is not None:
 
     st.success(f"Predicted Class: **{predicted_class}**")
     st.info(f"Confidence: {confidence:.2%}")
-
+    st.subheader("Class Probabilities")
+    probs_dict = {class_labels[i]: float(prediction[0][i]) for i in range(len(class_labels))}
+    st.bar_chart(probs_dict)
 
 
